@@ -1,6 +1,8 @@
-import express from 'express'
+import express,{ Router } from 'express'
+
 
 const app=express();
+
 
 app.listen(3000, function()
 {
