@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
-    "dev": "tsc --watch",
-    "watch":"ts-node-dev src/app.ts"
+    "build": "tsc && nodemon dist/app.js",
+    "dev": "ts-node-dev src/app.ts",
+    "watch":"tsc --watch"
   },
   "author": "",
   "license": "ISC",
