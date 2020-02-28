@@ -1,10 +1,10 @@
-import express,{ Router } from 'express'
+import { ApolloServer,gql } from 'apollo-server';
+
+import { resolver as resolvers, schema as typeDefs } from './graphql/schema/index';
 
 
-const app=express();
+const server = new ApolloServer({ typeDefs, resolvers, cors:true });
 
-
-app.listen(3000, function()
-{
-    console.log('running on 3000');
-})
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
