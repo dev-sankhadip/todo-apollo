@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost';
 import { client } from '../graphql/client'
 
 
-export const Login=()=>
+export const Login=(props)=>
 {
     const [ email, setEmail ]=useState('');
     const [ password, setPassword ]=useState('');
@@ -44,6 +44,7 @@ export const Login=()=>
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
+            <p onClick={()=>{ props.history.push('/signup') }}>Signup here</p>
         </div>
     )
 }
