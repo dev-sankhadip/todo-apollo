@@ -12,9 +12,9 @@ export const Login=()=>
     const submit=(e)=>
     {
         e.preventDefault();
-        client.mutate({ mutation:gql` 
+        client.mutate({ mutation:gql`
             mutation{
-                loginUser(email:${email}, password:${password}){
+                loginUser(email:"${email}", password:"${password}"){
                     code
                 }
             }
