@@ -1,4 +1,8 @@
 import jwt from 'jsonwebtoken';
+import shortid from 'shortid';
+
+import { connection } from '../../../db/connection';
+
 
 export const Mutation={
     createUser: async(args, request)=>
@@ -10,12 +14,20 @@ export const Mutation={
     },
     loginUser: async (parent, args, context, info)=>
     {
-        console.log(context);
-        console.log(args);
-        const token = jwt.sign({ userId: '123', email: '123@gmail.com' }, 'todo', { expiresIn: '1h' });
-        console.log(token);
-        return{
-            code:200
+        if(context.user!=null)
+        {
+            console.log(args);
+            const token = jwt.sign({ userId: '123', email: '123@gmail.com' }, 'todo', { expiresIn: '1h' });
+            console.log(token);
+            return{
+                code:200
+            }
+        }
+        else
+        {
+            return{
+                code:"401"
+            }
         }
     }
 }
