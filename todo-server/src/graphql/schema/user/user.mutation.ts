@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 import shortid from "shortid";
 
-import { connection } from "../../../db/connection";
-
 export const Mutation = {
   createUser: async (args, request) => {
     console.log(args);
