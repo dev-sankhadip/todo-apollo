@@ -1,24 +1,21 @@
-import { ApolloServer,gql } from 'apollo-server';
+import { ApolloServer, gql } from 'apollo-server';
 
 import { resolver as resolvers, schema as typeDefs } from './graphql/schema/index';
 import { getUser } from './security/auth'
 
-const server = new ApolloServer({ 
-  typeDefs, 
-  resolvers, 
-  cors:true,
-  context:({ req })=>
-  {
-    const token=req.headers['authorization'];
-    if(!token)
-    {
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  cors: true,
+  context: ({ req }) => {
+    const token = req.headers['authorization'];
+    if (!token) {
       return {
-        "user":null
+        "user": null
       }
     }
-    else
-    {
-      let user=getUser(token);
+    else {
+      let user = getUser(token);
       return {
         user
       }
