@@ -20,7 +20,16 @@ export const Login = (props) => {
             }
         ` })
             .then((res) => {
-                console.log(res.data.loginUser.code)
+                const { code, token } = res.data.loginUser;
+                if (code === 200) {
+                    window.localStorage.setItem("token", token);
+                }
+                else if (code === 401) {
+                    alert("Wrong Password")
+                }
+                else {
+                    alert("Server error")
+                }
             })
             .catch(err => console.error(err))
     }
@@ -45,7 +54,7 @@ export const Login = (props) => {
                         </div>
                         <button type="submit" className="btn btn-primary">Login</button>
                     </form>
-                    <p onClick={() => { props.history.push('/signup') }} style={{ fontWeight:'bold' }}>Signup here</p>
+                    <p onClick={() => { props.history.push('/signup') }} style={{ fontWeight: 'bold' }}>Signup here</p>
                 </div>
                 <div className="col-2"></div>
             </div>
