@@ -19,7 +19,7 @@
     "@types/shortid": "0.0.29",
     "nodemon": "^2.0.2",
     "ts-node-dev": "^1.0.0-pre.44",
-    "tslint": "^6.0.0",
+    "tslint": "^6.1.1",
     "typescript": "^3.8.2"
   },
   "dependencies": {
